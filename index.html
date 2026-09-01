@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loquinha - Juquinha e Lorena | Três Graças</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5e6d3 0%, #f0ddd0 50%, #e8d5c4 100%);
+            color: #3a2a1a;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #8b1a4a 0%, #b2226a 30%, #d44a8a 60%, #b2226a 100%);
+            padding: 35px 20px;
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border-bottom: 6px solid #ffd700;
+            box-shadow: 0 8px 40px rgba(139, 26, 74, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "💕";
+            position: absolute;
+            font-size: 140px;
+            opacity: 0.08;
+            right: -20px;
+            top: -30px;
+            transform: rotate(-10deg);
+        }
+
+        header::after {
+            content: "👩‍❤️‍👩";
+            position: absolute;
+            font-size: 100px;
+            opacity: 0.06;
+            left: 20px;
+            bottom: -10px;
+        }
+
+        header h1 {
+            font-size: 3.4rem;
+            letter-spacing: 4px;
+            color: #ffd700;
+            text-shadow: 0 4px 30px rgba(255, 215, 0, 0.2), 0 4px 12px rgba(0,0,0,0.3);
+            font-family: 'Georgia', serif;
+        }
+
+        header h1 span {
+            color: #ffffff;
+            text-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #f5d0e0;
+            font-style: italic;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.92);
+            padding: 14px;
+            border-radius: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+            border: 2px solid #d44a8a;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 20px rgba(139, 26, 74, 0.08);
+        }
+
+        nav a {
+            color: #8b1a4a;
+            text-decoration: none;
+            margin: 0 16px;
+            font-weight: bold;
+            font-size: 1.05rem;
+            transition: 0.3s;
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            color: #d44a8a;
+            background: rgba(139, 26, 74, 0.08);
+            text-shadow: 0 0 20px rgba(139, 26, 74, 0.1);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #8b1a4a, #d44a8a);
+            height: 280px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #ffd700;
+            box-shadow: inset 0 0 80px rgba(255, 215, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "🌈";
+            font-size: 160px;
+            opacity: 0.04;
+            position: absolute;
+            right: 30px;
+            bottom: -30px;
+            transform: rotate(-5deg);
+        }
+
+        .hero h2 {
+            background: rgba(139, 26, 74, 0.85);
+            padding: 25px 50px;
+            border-radius: 50px;
+            font-size: 2.2rem;
+            color: #ffd700;
+            border: 2px solid #ffd700;
+            font-family: 'Georgia', serif;
+            text-shadow: 0 0 40px rgba(255, 215, 0, 0.15);
+            backdrop-filter: blur(4px);
+            letter-spacing: 2px;
+        }
+
+        .hero h2 small {
+            display: block;
+            font-size: 0.9rem;
+            color: #f5d0e0;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: normal;
+            margin-top: 8px;
+            letter-spacing: 1px;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.92);
+            padding: 28px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            border-left: 5px solid #d44a8a;
+            backdrop-filter: blur(3px);
+            box-shadow: 0 4px 25px rgba(139, 26, 74, 0.06);
+        }
+
+        h2 {
+            color: #8b1a4a;
+            margin-bottom: 18px;
+            font-size: 1.9rem;
+            font-family: 'Georgia', serif;
+            border-bottom: 2px solid #f5d0e0;
+            padding-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            color: #b2226a;
+            margin: 18px 0 10px 0;
+            font-size: 1.3rem;
+        }
+
+        ul, ol {
+            padding-left: 28px;
+            margin: 12px 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .personagens-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 18px;
+        }
+
+        .card-personagem {
+            background: linear-gradient(145deg, #ffffff, #f8f0ec);
+            border-radius: 20px;
+            padding: 22px;
+            width: 300px;
+            text-align: center;
+            border: 2px solid #f5d0e0;
+            transition: 0.4s;
+            box-shadow: 0 4px 20px rgba(139, 26, 74, 0.06);
+        }
+
+        .card-personagem:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: #d44a8a;
+            box-shadow: 0 8px 40px rgba(139, 26, 74, 0.12);
+        }
+
+        .card-personagem img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 14px;
+            margin-bottom: 14px;
+            background: #f0ddd0;
+            border: 3px solid #f5d0e0;
+        }
+
+        .card-personagem h4 {
+            color: #8b1a4a;
+            font-size: 1.4rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .card-personagem .subtitulo {
+            font-size: 0.85rem;
+            color: #8a6a5a;
+            font-style: italic;
+            margin: 4px 0 10px 0;
+        }
+
+        .card-personagem .elenco {
+            font-size: 0.9rem;
+            color: #6a4a3a;
+            margin-bottom: 10px;
+        }
+
+        .card-personagem p {
+            font-size: 0.95rem;
+            color: #5a3a2a;
+            text-align: left;
+        }
+
+        .card-personagem .caracteristicas {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #f5d0e0;
+        }
+
+        .card-personagem .caracteristicas span {
+            display: inline-block;
+            background: #f5d0e0;
+            padding: 3px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #8b1a4a;
+            margin: 3px;
+            font-weight: bold;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+            padding-left: 20px;
+            border-left: 3px solid #d44a8a;
+        }
+
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 1px solid #f5d0e0;
+            transition: 0.3s;
+        }
+
+        .timeline-item:hover {
+            border-color: #d44a8a;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .timeline-item h4 {
+            color: #8b1a4a;
+            font-size: 1.1rem;
+        }
+
+        .timeline-item p {
+            color: #5a3a2a;
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+
+        .timeline-item .data {
+            font-size: 0.8rem;
+            color: #8a6a5a;
+            font-style: italic;
+        }
+
+        .frase {
+            background: rgba(139, 26, 74, 0.04);
+            padding: 20px 25px;
+            border-radius: 12px;
+            border-left: 4px solid #d44a8a;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #3a2a1a;
+            margin: 15px 0;
+        }
+
+        .frase span {
+            color: #8b1a4a;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .curiosidades-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 12px 0;
+        }
+
+        .curiosidade-item {
+            background: rgba(139, 26, 74, 0.04);
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: 1px solid #f5d0e0;
+            font-size: 0.95rem;
+            color: #3a2a1a;
+            flex: 1 1 200px;
+        }
+
+        .curiosidade-item strong {
+            color: #8b1a4a;
+        }
+
+        footer {
+            background: rgba(139, 26, 74, 0.92);
+            text-align: center;
+            padding: 22px;
+            border-radius: 16px;
+            margin-top: 30px;
+            border-top: 4px solid #ffd700;
+            color: #f5d0e0;
+        }
+
+        footer a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #ffed4a;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            header h1 { font-size: 2.2rem; letter-spacing: 2px; }
+            .hero h2 { font-size: 1.5rem; padding: 18px 25px; }
+            .hero h2 small { font-size: 0.8rem; }
+            nav a { display: inline-block; margin: 5px 10px; font-size: 0.9rem; }
+            .personagens-grid { flex-direction: column; align-items: center; }
+            .card-personagem { width: 100%; max-width: 320px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Cabeçalho -->
+        <header>
+            <h1>💕 <span>Loquinha</span></h1>
+            <p>Juquinha e Lorena — o casal que conquistou o Brasil</p>
+        </header>
+
+        <!-- Navegação -->
+        <nav>
+            <a href="#personagens">Personagens</a>
+            <a href="#timeline">Timeline do Amor</a>
+            <a href="#frases">Frases</a>
+            <a href="#curiosidades">Curiosidades</a>
+        </nav>
+
+        <!-- Imagem de destaque -->
+        <div class="hero">
+            <h2>
+                👩‍❤️‍👩 Amor que venceu o preconceito
+                <small>A história de Lorena e Juquinha em Três Graças</small>
+            </h2>
+        </div>
+
+        <!-- Personagens -->
+        <section id="personagens">
+            <h2>👩 Personagens</h2>
+            <div class="personagens-grid">
+
+                <div class="card-personagem">
+                    <img src="https://via.placeholder.com/300x200/8b1a4a/ffd700?text=Juquinha" alt="Juquinha" />
+                    <h4>Juquinha (Eduarda Fragoso)</h4>
+                    <div class="subtitulo">Policial em formação</div>
+                    <div class="elenco">🎭 Interpretada por Gabriela Medvedovsky [citation:11]</div>
+                    <p>
+                        Juquinha é uma jovem policial em formação, estagiária do delegado Paulinho Reitz [citation:3]. 
+                        Curiosa, determinada e com forte senso de justiça, ela se torna uma das personagens mais 
+                        queridas da trama [citation:11].
+                    </p>
+                    <div class="caracteristicas">
+                        <span>👮‍♀️ Policial</span>
+                        <span>💪 Determinada</span>
+                        <span>❤️ Apaixonada</span>
+                        <span>🌈 Aliada LGBTQIA+</span>
+                    </div>
+                </div>
+
+                <div class="card-personagem">
+                    <img src="https://via.placeholder.com/300x200/8b1a4a/ffd700?text=Lorena" alt="Lorena" />
+                    <h4>Lorena Ferette</h4>
+                    <div class="subtitulo">Filha rebelde de Santiago Ferette</div>
+                    <div class="elenco">🎭 Interpretada por Alanis Guillen [citation:3]</div>
+                    <p>
+                        Lorena é filha do vilão Santiago Ferette [citation:3]. Impulsiva, rebelde e com ideias 
+                        feministas, ela não concorda com o estilo de vida luxuoso da família e se torna uma 
+                        ativista em busca de justiça [citation:3].
+                    </p>
+                    <div class="caracteristicas">
+                        <span>🌱 Sustentável</span>
+                        <span>✊ Feminista</span>
+                        <span>💔 Em conflito com o pai</span>
+                        <span>🌈 Aliada LGBTQIA+</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Timeline do Amor -->
+        <section id="timeline">
+            <h2>💕 Timeline do Amor "Loquinha"</h2>
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <h4>👀 Primeiro Encontro</h4>
+                    <p>
+                        As duas se conhecem na casa de Kasper e João, durante um encontro organizado por Maggye. 
+                        A química é imediata, com intensa troca de olhares [citation:1].
+                    </p>
+                    <div class="data">📅 Capítulo inicial</div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>💋 Primeiro Beijo</h4>
+                    <p>
+                        Após um encontro a sós, Juquinha toma a iniciativa e as duas se beijam dentro do carro. 
+                        A cena "levou a web à loucura" [citation:1].
+                    </p>
+                    <div class="data">📅 Primeiros capítulos</div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>💍 Pedido de Namoro</h4>
+                    <p>
+                        Juquinha pede Lorena em namoro dentro do carro: "Por mim a gente já estava namorando 
+                        desde o primeiro dia que eu te vi". Lorena corresponde: "Eu não tive escolha. 
+                        Eu nunca senti isso antes na minha vida" [citation:1].
+                    </p>
+                    <div class="data">📅 Capítulo 40</div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>🏠 Independência de Lorena</h4>
+                    <p>
+                        Após ser expulsa de casa pelo pai homofóbico, Lorena se torna garçonete para se sustentar, 
+                        deixando Ferette furioso [citation:2][citation:9].
+                    </p>
+                    <div class="data">📅 Capítulo 50</div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>👨‍👩‍👧 Conhecendo os Pais de Juquinha</h4>
+                    <p>
+                        Henrique (desembargador) e Violeta recebem Lorena com carinho e a tratam como uma filha. 
+                        "Nada de doutor! A toga ficou em casa", brinca o pai de Juquinha [citation:7][citation:10].
+                    </p>
+                    <div class="data">📅 Capítulo 60</div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>💒 Pedido de Casamento</h4>
+                    <p>
+                        Em um jantar de Ferette, Juquinha pede Lorena em casamento para afrontar o pai homofóbico. 
+                        Lorena responde: "Aceito!" [citation:1].
+                    </p>
+                    <div class="data">📅 Capítulo 70</div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>🏡 Noite de Amor e Mudança</h4>
+                    <p>
+                        Em Campos do Jordão, o casal tem sua primeira noite de amor e decide morar junto. 
+                        Juquinha a convida: "Bora juntar as escovas?" [citation:1].
+                    </p>
+                    <div class="data">📅 Capítulo 80</div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>💒 Casamento Oficial</h4>
+                    <p>
+                        O casamento coletivo de Juquinha e Lorena (com Leonardo e Viviane) acontece em um sítio 
+                        da família de Juquinha. A cerimônia é celebrada por Michelângelo e conta com a presença 
+                        de Crô e outros personagens [citation:4].
+                    </p>
+                    <div class="data">📅 Capítulo final (maio de 2026)</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Frases -->
+        <section id="frases">
+            <h2>💬 Frases Marcantes do Casal</h2>
+            
+            <div class="frase">
+                "Por mim a gente já estava namorando desde o primeiro dia que eu te vi lá na Maggye. 
+                Eu só tava esperando um tempo pra você entender as coisas." 
+                <span>— Juquinha, no pedido de namoro [citation:1]</span>
+            </div>
+
+            <div class="frase">
+                "Eu não tive escolha. Eu nunca senti isso antes na minha vida." 
+                <span>— Lorena, respondendo ao pedido de namoro [citation:1]</span>
+            </div>
+
+            <div class="frase">
+                "Quer casar comigo?" / "Aceito!" 
+                <span>— Juquinha e Lorena, no pedido de casamento [citation:1]</span>
+            </div>
+
+            <div class="frase">
+                "Nada de doutor! A toga ficou em casa." 
+                <span>— Henrique, pai de Juquinha, ao conhecer Lorena [citation:7]</span>
+            </div>
+
+            <div class="frase">
+                "Eduarda disse que você era linda, mas você é muito mais do que isso. É uma deusa, deslumbrante!" 
+                <span>— Violeta, mãe de Juquinha, a Lorena [citation:10]</span>
+            </div>
+
+            <div class="frase">
+                "Lorena Ferette, eu te pergunto: você quer casar comigo?" / "Quero. Sempre! 
+                Só pra poder acordar e te ver do meu lado todo dia." 
+                <span>— Juquinha e Lorena, no pedido oficial de casamento [citation:1]</span>
+            </div>
+
+            <div class="frase">
+                "Bora juntar as escovas?" 
+                <span>— Juquinha, convidando Lorena para morar junto [citation:1]</span>
+            </div>
+        </section>
+
+        <!-- Curiosidades -->
+        <section id="curiosidades">
+            <h2>🔮 Curiosidades sobre o Casal</h2>
+            <div class="curiosidades-grid">
+                <div class="curiosidade-item">
+                    <strong>🏳️‍🌈 Nome do Ship:</strong> "Loquinha" [citation:1][citation:5]
+                </div>
+                <div class="curiosidade-item">
+                    <strong>🎭 Autores:</strong> Aguinaldo Silva, Virgílio Silva e Zé Dassilva [citation:5][citation:6]
+                </div>
+                <div class="curiosidade-item">
+                    <strong>📺 Gênero:</strong> Comédia dramática LGBTQIA+ [citation:1]
+                </div>
+                <div class="curiosidade-item">
+                    <strong>🌟 Sucesso:</strong> O casal viralizou nas redes sociais [citation:5][citation:11]
+                </div>
+                <div class="curiosidade-item">
+                    <strong>🎭 Atrizes:</strong> Gabriela Medvedovsky e Alanis Guillen [citation:11]
+                </div>
+                <div class="curiosidade-item">
+                    <strong>💕 Primeiro beijo:</strong> Dentro do carro [citation:1]
+                </div>
+                <div class="curiosidade-item">
+                    <strong>💍 Casamento:</strong> Cerimônia coletiva em maio de 2026 [citation:4]
+                </div>
+                <div class="curiosidade-item">
+                    <strong>👨‍👩‍👧 Pais de Juquinha:</strong> Henrique e Violeta [citation:7][citation:10]
+                </div>
+                <div class="curiosidade-item">
+                    <strong>🏠 Moradia:</strong> Decidem morar juntas após a primeira noite de amor [citation:1]
+                </div>
+                <div class="curiosidade-item">
+                    <strong>🎬 Spin-off:</strong> O sucesso do casal ganhou até spin-off próprio [citation:1]
+                </div>
+            </div>
+        </section>
+
+        <!-- Rodapé -->
+        <footer>
+            <p>
+                💕 &copy; 2026 - Página informativa sobre <strong>Juquinha e Lorena (Loquinha)</strong> | 
+                <a href="#">Voltar ao topo</a>
+            </p>
+            <p style="font-size:0.9rem; margin-top:8px; color: #f5d0e0;">
+                🌈 "Amor é amor, em qualquer forma que ele venha." 🌈
+            </p>
+            <p style="font-size:0.8rem; margin-top:4px; color: #d4a0b0;">
+                Feito por fãs para fãs 💕
+            </p>
+        </footer>
+
+    </div>
+</body>
+</html> 
